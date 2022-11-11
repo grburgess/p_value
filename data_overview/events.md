@@ -31,9 +31,9 @@ north = []
 eq = []
 south = []
 for p in events.periods:
-    north.append(events.reco_energy[p][np.nonzero(events.dec[p] >= 10)])
-    eq.append(events.reco_energy[p][np.nonzero((events.dec[p] < 10) & (events.dec[p] > -10))])
-    south.append(events.reco_energy[p][np.nonzero(events.dec[p] <= -10)])
+    north.append(events.reco_energy[p][np.nonzero(events.dec[p] >= np.deg2rad(10))])
+    eq.append(events.reco_energy[p][np.nonzero((events.dec[p] < np.deg2rad(10)) & (events.dec[p] > np.deg2rad(-10)))])
+    south.append(events.reco_energy[p][np.nonzero(events.dec[p] <= np.deg2rad(-10))])
 
 for region, data in zip(["north", "equator", "south"], [north, eq, south]):
     data = np.concatenate(data)
@@ -41,6 +41,7 @@ for region, data in zip(["north", "equator", "south"], [north, eq, south]):
     n = np.flip(np.cumsum(np.flip(n)))
     n = np.concatenate((np.array([n[0]]), n))
     ax.step(bins, n, color=p[0].get_facecolor(), alpha=1)
+    ax.vlines((np.sort(data)[-1000]), 0, 1e6, color='black', ls=':')
 
 
 
@@ -57,14 +58,6 @@ ax.set_xlabel("$\log_{10}(E/\mathrm{GeV})$")
 ax.set_ylabel("number of events")
 ax.legend()
 fig.savefig("event_numbers.png", dpi=150)
-```
-
-```python
-np.flip(np.cumsum(np.flip(n)))
-```
-
-```python
-bins
 ```
 
 ```python
