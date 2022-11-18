@@ -1,0 +1,11 @@
+# sky_scan.sub -- submission file for sky scan, duh
+  
+executable              = sky_scan.sh
+arguments               = $(Process)
+log                     = log/log_$(Process).log
+output                  = out/stdout_$(Process).out
+error                   = err/stderr_$(Process).err
+getenv                  = True
+request_memory          = 2048
+should_transfer_files   = No
+queue 7
