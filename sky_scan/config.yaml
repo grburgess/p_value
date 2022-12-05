@@ -1,12 +1,4 @@
 sources:
-  nside: 16
-
+  nside: 256
 data:
-  periods:
-    - IC40
-    - IC59
-    - IC79
-    - IC86_I
-    - IC86_II
-
-  
+  likelihood:  both
