@@ -1,0 +1,29 @@
+!!python/object/new:icecube_tools.utils.data.ddict
+dictitems:
+  data:
+    cuts:
+      equator:
+        emin: 10.0
+      max_dec: 90.0
+      min_dec: -90.0
+      northern:
+        emin: 10.0
+      southern:
+        emin: 10.0
+    likelihood: both
+    periods:
+    - IC40
+    - IC59
+    - IC79
+    - IC86_I
+    - IC86_II
+  sources:
+    dec:
+    - -0.005235987755982988
+    npix: null
+    nside: 64
+    ra:
+    - 3.141592653589793
+  ts:
+    ntrials: 1000
+    seed: 42
