@@ -9,4 +9,6 @@ data:
     - IC86_I
     - IC86_II
 
-  
+ts:
+  seed: 42
+  ntrials: 10
