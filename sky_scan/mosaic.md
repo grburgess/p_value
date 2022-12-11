@@ -100,8 +100,8 @@ projview(
     #latra=[-2, 2]
     fig=1
 );
-for f in faulty:
-    newprojplot(phi=scan.ra_test[f], theta=scan.dec_test[f], marker='o', color='red', markersize=2)
+#for f in faulty:
+#    newprojplot(phi=scan.ra_test[f], theta=scan.dec_test[f], marker='o', color='red', markersize=2)
 #newprojplot(phi=0, theta=0, marker='o', color='red')
 ##phi = np.linspace(0, np.pi, 1000)
 # theta = np.full(1000, np.pi/2)
