@@ -84,6 +84,11 @@ fig.colorbar(pcol, ax=ax, label='index')
 ax.scatter(40.6696215289200, -00.0132943583900, c="red")
 ```
 
+```python
+scan.ts.max()
+
+```
+
 ## Create TS distribution
 TS values themselves are not calibrated, we need to "simulate" (i.e. for a large enough data set shuffle the RAs to wash out any source associations) lots of events, fit again a source and find the TS. From the number of simulated data sets with TS larger than the one from the un-shuffled data we obtain the local p-value.
 
@@ -120,14 +125,16 @@ ts_copy.sort()
 ```
 
 ```python
-plt.hist(ts_copy, bins=20, density=True, label="1000 simulations")
+n, bins, patches = plt.hist(ts_copy, bins=20, density=True, label="1000 simulations")
 pars = chi2.fit(ts_copy)
 x = np.linspace(0, 80, num=1000)
 plt.plot(x, chi2(*pars).pdf(x), label="chi2 fit")
+plt.vlines(scan.ts.max(), 0, n.max(), label="data TS", color='red')
 plt.xlabel("TS")
 plt.ylabel("pdf")
 plt.legend()
 print(pars)
+plt.savefig("ts_dist_ngc.png", dpi=150)
 ```
 
 ```python
